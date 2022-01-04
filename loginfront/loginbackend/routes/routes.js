@@ -1,7 +1,25 @@
-const { request, response } = require('express')
 const express = require('express')
 const router = express.Router()
+const signUpTemplateCopy = require('../models/SignUpModels')
 
-// router.post('/login', (request, response)) => {
-//   response.send('send')
-// }
+router.post('/signup', (request, response) => {
+  const signedUpUser = new signUpTemplateCopy({
+    firstName: request.body.firstName,
+    lastName: request.body.lastName,
+    email: request.body.email,
+    companyName: request.body.companyName,
+    password: request.body.password
+
+  })
+
+  signedUpUser.save()
+    .then(data => {
+      response.json(data)
+    })
+    .catch(error => {
+      response.json(error)
+    })
+
+})
+
+module.exports = router
