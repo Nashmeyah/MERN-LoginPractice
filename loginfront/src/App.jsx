@@ -74,7 +74,7 @@ class App extends Component{
             <div>
                 <div className="container">
                     <div className="form-div">
-                        <form>
+                        <form onSubmit={this.onSubmit}>
                             <input type="text" placeholder="First Name" onChange={this.changeFirstName} value={this.state.firstName} className="form-control form-group" />
                             <input type="text" placeholder="Last Name" onChange={this.changeLastName} value={this.state.lastName} className="form-control form-group"/>
                             <input type="text" placeholder="Email" onChange={this.changeEmail} value={this.state.email} className="form-control form-group"/>
