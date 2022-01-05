@@ -11,6 +11,11 @@ class App extends Component{
             companyName:"",
             password:""
         }
+        this.changeFirstName = this.changeFirstName.bind(this)
+        this.changeLastName = this.changeLastName.bind(this)
+        this.changeEmail = this.changeEmail.bind(this)
+        this.changeCompanyName = this.changeCompanyName.bind(this)
+        this.changePassword = this.changePassword.bind(this)
     }
 
     changeFirstName(e){
@@ -45,7 +50,7 @@ class App extends Component{
                 <div className="container">
                     <div className="form-div">
                         <form>
-                            <input type='text' plaeholder="First Name" onChange={this.changeFirstName} value={this.state.firstName} className="form-control form-group" />
+                            <input type="text" placeholder="First Name" onChange={this.changeFirstName} value={this.state.firstName} className="form-control form-group" />
                             <input type="text" placeholder="Last Name" onChange={this.changeLastName} value={this.state.lastName} className="form-control form-group"/>
                             <input type="text" placeholder="Email" onChange={this.changeEmail} value={this.state.email} className="form-control form-group"/>
                             <input type="text" placeholder="Company Name" onChange={this.changeCompanyName} value={this.state.companyName} className="form-control form-group"/>
