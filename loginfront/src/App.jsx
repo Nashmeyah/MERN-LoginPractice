@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
+import axios from "axios"
 
 class App extends Component{
     constructor(){
@@ -16,6 +17,7 @@ class App extends Component{
         this.changeEmail = this.changeEmail.bind(this)
         this.changeCompanyName = this.changeCompanyName.bind(this)
         this.changePassword = this.changePassword.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
     }
 
     changeFirstName(e){
@@ -41,6 +43,29 @@ class App extends Component{
     changePassword(e){
         this.setState({
             password:e.target.value
+        })
+    }
+
+    onSubmit(e){
+        e.preventDefault()
+
+        const registered ={
+            firstName:this.state.firstName,
+            lastName:this.state.lastName,
+            email:this.state.email,
+            companyName:this.state.companyName,
+            password:this.state.password
+        }
+
+        axios.post("http://localhost:4000/app/signup", registered)
+            .then(response => console.log(response.data))
+
+        this.setState({
+            firstName:"",
+            lastName:"",
+            email:"",
+            companyName:"",
+            password:""
         })
     }
 
