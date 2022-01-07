@@ -27,4 +27,9 @@ router.post('/signup', async (request, response) => {
 
 })
 
+// router.post('/login', async (request, response) => {
+//   const user = await signedUpUser.findOne({ email: request.body.email, password: request.body.password })
+
+// })
+
 module.exports = router
