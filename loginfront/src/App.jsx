@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import axios from "axios"
 
 
-function App{
+function App(){
 
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
@@ -46,7 +46,7 @@ function App{
                             <input type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={this.state.email} className="form-control form-group"/>
                             <input type="text" placeholder="Company Name" onChange={(e) => setCompanyName(e.target.value)} value={this.state.companyName} className="form-control form-group"/>
                             <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={this.state.password} className="form-control form-group"/>
-                            
+
                             <input type="submit" className="btn btn-danger btn-block" value="Submit"/>
                         </form>
                     </div>
