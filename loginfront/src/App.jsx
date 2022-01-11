@@ -1,52 +1,18 @@
 import React, {Component} from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import axios from "axios"
 
-class App extends Component{
-    constructor(){
-        super()
-        this.state ={
-            firstName:"",
-            lastName:"",
-            email:"",
-            companyName:"",
-            password:""
-        }
-        this.changeFirstName = this.changeFirstName.bind(this)
-        this.changeLastName = this.changeLastName.bind(this)
-        this.changeEmail = this.changeEmail.bind(this)
-        this.changeCompanyName = this.changeCompanyName.bind(this)
-        this.changePassword = this.changePassword.bind(this)
-        this.onSubmit = this.onSubmit.bind(this)
-    }
 
-    changeFirstName(e){
-        this.setState({
-            firstName:e.target.value
-        })
-    }
-    changeLastName(e){
-        this.setState({
-            lastName:e.target.value
-        })
-    }
-    changeEmail(e){
-        this.setState({
-            email:e.target.value
-        })
-    }
-    changeCompanyName(e){
-        this.setState({
-            companyName:e.target.value
-        })
-    }
-    changePassword(e){
-        this.setState({
-            password:e.target.value
-        })
-    }
+function App{
 
-    onSubmit(e){
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [companyName, setCompanyName] = useState("")
+    const [password, setPassword] = useState("")
+
+    function registerUser(e){
         e.preventDefault()
 
         const registered ={
@@ -69,25 +35,25 @@ class App extends Component{
         })
     }
 
-    render() {
+    // render() {
         return(
             <div>
                 <div className="container">
                     <div className="form-div">
-                        <form onSubmit={this.onSubmit}>
-                            <input type="text" placeholder="First Name" onChange={this.changeFirstName} value={this.state.firstName} className="form-control form-group" />
-                            <input type="text" placeholder="Last Name" onChange={this.changeLastName} value={this.state.lastName} className="form-control form-group"/>
-                            <input type="text" placeholder="Email" onChange={this.changeEmail} value={this.state.email} className="form-control form-group"/>
-                            <input type="text" placeholder="Company Name" onChange={this.changeCompanyName} value={this.state.companyName} className="form-control form-group"/>
-                            <input type="password" placeholder="Password" onChange={this.changePassword} value={this.state.password} className="form-control form-group"/>
-
+                        <form onSubmit={registerUser}>
+                            <input type="text" placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} value={this.state.firstName} className="form-control form-group" />
+                            <input type="text" placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} value={this.state.lastName} className="form-control form-group"/>
+                            <input type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={this.state.email} className="form-control form-group"/>
+                            <input type="text" placeholder="Company Name" onChange={(e) => setCompanyName(e.target.value)} value={this.state.companyName} className="form-control form-group"/>
+                            <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={this.state.password} className="form-control form-group"/>
+                            
                             <input type="submit" className="btn btn-danger btn-block" value="Submit"/>
                         </form>
                     </div>
                 </div>
             </div>
         );
-    }
+    // }
 }
 
 export default App;
